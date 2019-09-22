@@ -1,0 +1,41 @@
+1. Login in to AWS via ssh
+ssh -i /Users/XXXXXX.pem ubuntu@XXXXXXX
+
+2. Download ANACONDA
+wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
+
+3. Install ANACONDA
+bash Anaconda3-2019.07-Linux-x86_64.sh 
+
+4. Check conda environment
+conda info -e
+
+5. Create new environemnt
+conda create -n py36 python=3.6 anaconda
+# -n "env. name", python="version"
+
+6. Activate conda environment
+conda activate py36
+
+7. Deactivate conda environemnt
+conda deactivate
+
+8. Jupyter notebook
+    8-1. Set access password
+    jupyter notebook password
+    * Set your password
+
+    8-2. Make SSL files
+    mkdir ssl
+    cd ssl
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.key -out mycert.pemq
+
+    8-3. Open jupyter notebook
+    jupyter notebook --certfile=mycert.pemq --keyfile mykey.key
+
+    8-4. Access jupyter notebook from Local environment
+    ssh -i /Users/XXXXXX.pem -N -f -L 8888:localhost:8888 ubuntu@XXXXXXX
+    
+    8-5. Access the 8888port from browse and put your password set up on 8-1.
+    https://localhost:8888
+
