@@ -1,5 +1,7 @@
 1. install library to handle aws from python
 pip install boto3
+pip install awscli
+pip install awscli --upgrade
 
 2. aws configure setting
 aws configure 
