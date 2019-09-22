@@ -1,0 +1,27 @@
+1. install library to handle aws from python
+pip install boto3
+
+2. aws configure setting
+aws configure 
+aws_access_key_id = "YOUR_ACCESS_KEY"
+aws_secret_access_key = "YOUR_SECRET_KEY"
+* In initial setting of User accout, Access_key & Secret_key are isse at one time
+
+3. Access s3 from python on ec2
+import pandas as pd
+import boto3
+
+bucket = "sample20190921"
+file_name = "train.csv"
+
+s3 = boto3.client('s3') 
+obj = s3.get_object(Bucket= bucket, Key= file_name) 
+
+df = pd.read_csv(obj['Body'])
+
+# get bucket lists
+s3.list_buckets()
+
+# get objects list
+objects_list = s3.list_objects(Bucket='XXXXX')
+
