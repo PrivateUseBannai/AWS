@@ -1,3 +1,9 @@
+0. Secret key setting
+# Save Seacret key in WSL env.
+cp XXX.pem dir
+
+chmod 600 test_20191106.pem 
+
 1. Login in to AWS via ssh
 ssh -i /Users/XXXXXX.pem ubuntu@XXXXXXX
 
